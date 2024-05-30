@@ -6,3 +6,6 @@ CORE FEATURES
 2. User/Admin Authentication
 3. Inpatient Registration Module
 4. Outpatient Registration Module
+
+NOTE:
+Use ToastAndroid for messages/notifications
