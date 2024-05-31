@@ -12,14 +12,14 @@ const Splash = () => {
 
   return (
     <View style = {styles.container} >
-      <Image style = {styles.image}></Image>
+      <Image style = {styles.image} source={localImage}></Image>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: '#f2f2f2', width: wp('100%'), height: hp('100%')},
-  image: {width:100, height:100, left:0, top:0}
+  container: {flex: 1, backgroundColor: '#f2f2f2', width: wp('100%'), height: hp('100%'), justifyContent:'center', alignItems:'center'},
+  image: {width:200, height:200}
 })
 
 export default Splash;

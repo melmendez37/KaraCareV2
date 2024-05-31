@@ -1,11 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { Alert } from "react-native";
+import { Alert, StyleSheet, Text, TextInput, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Form = () => {
     const nav = useNavigation();
-    /** set all text fields to be not usable until tapped */
+    
     const [isNameFocused, setIsNameFocused] = useState(false);
     const [isAddFocused, setIsAddFoucsed] = useState(false);
     const [isNumFocused, setIsNumFocused] = useState(false);
@@ -88,29 +88,68 @@ const Form = () => {
 
     return(
         <View style = {styles.container}>
-            <View style = {styles.recOne}/>
-            <Text style = {styles.headOne}>EMERGNECY ALERT</Text>
-            <TouchableOpacity style = {styles.next} onPress={handleExternalResponder}>
+            <View style = {styles.recOne}>
+                <Text style = {styles.headOne}>EMERGENCY ALERT</Text>
+            </View>
 
-            </TouchableOpacity>
-
-            <TouchableOpacity style = {styles.back} onPress={backScreen}>
-
-            </TouchableOpacity>
+            <TextInput  style={styles.textField}
+                            value={name}
+                            onChangeText={(text) => setName(text)}
+                            placeholder = {(isNameFocused || name) ? '': 'Name'}
+                            placeholderColor = "#888"
+                            textAlign= "center"
+                            onFocus = {() => handleFocus('name')}
+                            onBlur = {() => handleBlur('name')}
+                            />
             
+            <TextInput  style={styles.textField}
+                            value={address}
+                            onChangeText={(text) => setAddress(text)}
+                            placeholder = {(isAddFocused || address) ? '': 'Address'}
+                            placeholderColor = "#888"
+                            textAlign= "center"
+                            onFocus = {() => handleFocus('address')}
+                            onBlur = {() => handleBlur('address')}
+                            />
+            <TextInput  style={styles.textField}
+                            value={number}
+                            textAlign= "center"
+                            onFocus = {() => handleFocus('number')}
+                            onBlur = {() => handleBlur('number')}
+                            onChangeText={(text) => setNumber(text)}
+                            placeholder = {(isNumFocused || number) ? '': 'Phone Number'}
+                            placeholderColor = "#888" />
+
+            <TextInput  style={styles.textField}
+                            value={nature}
+                            textAlign= "center"
+                            onFocus = {() => handleFocus('nature')}
+                            onBlur = {() => handleBlur('nature')}
+                            onChangeText={(text) => setNature(text)}
+                            placeholder = {(isNatureFocused || nature) ? '': 'Nature'}
+                            placeholderColor = "#888"/>
+            
+            <TouchableOpacity style = {styles.sendButton}>
+                <Text style={styles.sendButtonText}>Next</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style = {styles.backButton} onPress={backScreen}>
+                <Text style={styles.backButtonText}>Back</Text>
+            </TouchableOpacity>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {width: '100%', height: '100%', backgroundColor: '#00609E'},
-    recOne: {width:'100%', height:'100%', left: 0, top:182, backgroundColor: 'white'},
-    headOne: {width: '100%', height: 45, textAlign: 'center', top:100, fontFamily:'Montserrat-SemiBold', fontSize:40, color:'white'},
-    fieldOne: {width: 250, height: 40, left: -35, top: 0, position: 'absolute', backgroundColor: 'white', borderWidth:1, borderRadius: 5},
-    fieldTwo: {width: 250, height: 40, left: -35, top: 0, position: 'absolute', backgroundColor: 'white', borderWidth:1, borderRadius: 5},
-    fieldThr: {width: 250, height: 40, left: -35, top: 0, position: 'absolute', backgroundColor: 'white', borderWidth:1, borderRadius: 5},
-    fieldFour: {width: 250, height: 40, left: -35, top: 0, position: 'absolute', backgroundColor: 'white', borderWidth:1, borderRadius: 5},
-    next: {width: 130, height: 44, left:41, top: 417, backgroundColor:'#B8B7B7', borderWidth:1, borderRadius: 5},
-    back: {width: 130, height: 44, left:189, top: 417, backgroundColor:'#B8B7B7', borderWidth:1, borderRadius: 5, color:'white'},
-
+    container: {width: '100%', height: '100%', backgroundColor: '#f2f2f2', zIndex: -1, flex: 1, position:'relative'},
+    recOne: {width:'100%', height:'20%', backgroundColor: '#00609E', zIndex: -1, position:'relative'},
+    headOne: {width: '100%', height: 45, top:85, textAlign: 'center', position:'relative', fontSize:34, color:'white'},
+    textField: {width: '80%', height: 40, left:40, top:60, position: 'relative', backgroundColor: 'white', borderWidth:1, borderRadius: 5, marginBottom:10},
+    sendButton: {width: '60%', height: 40, left:40, top:80, position: 'relative', backgroundColor: '#00609E', borderWidth:1, borderRadius: 5, marginLeft:40, marginBottom:10},
+    backButton: {width: '60%', height: 40, left:40, top:80, position: 'relative', backgroundColor: '#f2f2f2', borderWidth:1, borderRadius: 5, marginLeft:40,},
+    
+    sendButtonText:{ color:'#f2f2f2', textAlign: 'center', fontSize:14, fontWeight:'bold'},
+    backButtonText:{ textAlign: 'center', fontSize:14, fontWeight:'bold'},
 })
+
+export default Form;
