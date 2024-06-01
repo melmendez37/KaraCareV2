@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { loadAsync } from "expo-font";
 import React, { useEffect } from "react";
 import Form from "./screens/Form.js";
+import Login from "./screens/Login.js";
 import Splash from './screens/Splash.js';
 import Welcome from "./screens/Welcome.js";
 
@@ -19,7 +20,7 @@ const App = () => {
                 <Stack.Screen name = "Splash" component={Splash}/>
                 <Stack.Screen name = "Welcome" component={Welcome}/>
                 <Stack.Screen name = "Form" component={Form}/>
-
+                <Stack.Screen name = "Login" component={Login}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

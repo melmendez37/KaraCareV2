@@ -141,14 +141,14 @@ const Form = () => {
 }
 
 const styles = StyleSheet.create({
-    container: {width: '100%', height: '100%', backgroundColor: '#f2f2f2', zIndex: -1, flex: 1, position:'relative'},
-    recOne: {width:'100%', height:'20%', backgroundColor: '#00609E', zIndex: -1, position:'relative'},
-    headOne: {width: '100%', height: 45, top:85, textAlign: 'center', position:'relative', fontSize:34, color:'white'},
-    textField: {width: '80%', height: 40, left:40, top:60, position: 'relative', backgroundColor: 'white', borderWidth:1, borderRadius: 5, marginBottom:10},
-    sendButton: {width: '60%', height: 40, left:40, top:80, position: 'relative', backgroundColor: '#00609E', borderWidth:1, borderRadius: 5, marginLeft:40, marginBottom:10},
-    backButton: {width: '60%', height: 40, left:40, top:80, position: 'relative', backgroundColor: '#f2f2f2', borderWidth:1, borderRadius: 5, marginLeft:40,},
+    container: {alignItems:'center', width: '100%', height: '100%', backgroundColor: '#f2f2f2', zIndex: -1, flex: 1, position:'relative'},
+    recOne: {width:'100%', height:'20%', backgroundColor: '#00609E', zIndex: -1},
+    headOne: {width: '100%', height: 45, top:85, textAlign: 'center', fontSize:34, color:'white'},
+    textField: {width: '80%', height: 40 , top:60, backgroundColor: 'white', borderWidth:1, borderRadius: 5, marginBottom:10},
+    sendButton: {width: 100, height: 40, top:100,backgroundColor: '#00609E', borderWidth:1, borderRadius: 5},
+    backButton: {width: 100, height: 40 , top:100, backgroundColor: '#f2f2f2', borderWidth:1, borderRadius: 5},
     
-    sendButtonText:{ color:'#f2f2f2', textAlign: 'center', fontSize:14, fontWeight:'bold'},
+    sendButtonText:{color:'#f2f2f2', textAlign: 'center', fontSize:14, fontWeight:'bold'},
     backButtonText:{ textAlign: 'center', fontSize:14, fontWeight:'bold'},
 })
 
