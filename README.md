@@ -8,4 +8,5 @@ CORE FEATURES
 4. Outpatient Registration Module
 
 NOTE:
-Use ToastAndroid for messages/notifications
+Use ToastAndroid for input form validation
+Used prototype from Figma, a much more simple frontend with no redundancies
