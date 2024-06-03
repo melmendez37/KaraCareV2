@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, Text, View } from 'react-native';
+import { BackHandler, StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Welcome = () => {
@@ -15,6 +15,10 @@ const Welcome = () => {
         nav.navigate('Login')
     }
 
+    const handleExit = () => {
+        BackHandler.exitApp();
+    }
+
     return(
         <View style = {styles.container}>
             <Text style = {styles.headOne}>WELCOME to</Text>
@@ -23,10 +27,10 @@ const Welcome = () => {
             <TouchableOpacity style = {styles.buttonOne} onPress={handleExternalResponder}>
                 <Text style = {styles.textButton}>EXTERNAL RESPONDER</Text>
             </TouchableOpacity>
-            <TouchableOpacity style = {styles.buttonTwo} onPress={handleLogin} /**</View>onPress:{where this button is redirected}'**/>
+            <TouchableOpacity style = {styles.buttonTwo} onPress={handleLogin}>
                 <Text style = {styles.textButton}>MEDICAL STAFF</Text>
             </TouchableOpacity>
-            <TouchableOpacity style = {styles.buttonThr} /**</View>onPress:{where this button is redirected}'**/>
+            <TouchableOpacity style = {styles.buttonThr} onPress={handleExit}>
                 <Text style = {styles.textButton}>EXIT</Text>
             </TouchableOpacity>
         </View>

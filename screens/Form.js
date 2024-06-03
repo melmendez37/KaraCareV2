@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { Alert, StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet, Text, TextInput, ToastAndroid, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Form = () => {
@@ -24,27 +24,16 @@ const Form = () => {
 
     const handleSubmit = () => {
         if(!name || !address || !number || !nature){
-            Alert.alert('INCOMPLETE FORM', 'Please fill up the missing fields')
+            ToastAndroid.show('Please fill up the missing fields', ToastAndroid.SHORT)
         }
         else if(!/^\d+$/.test(number) || !number.startsWith('09')){
-            Alert.alert('INPUT ERROR', 'Please enter a valid phone number')
+            ToastAndroid.show('Please enter a valid phone number', ToastAndroid.SHORT)
         }
         else if(number.toString().length != 11){
-            Alert.alert('INPUT ERROR', 'Phone number must be 11 digits')
+            ToastAndroid.show('Phone number must be 11 digits', ToastAndroid.SHORT)
         }
         else{
-            Alert.alert('CONFIRM', 'Do you wish to proceed?',
-            [
-                {type:'Cancel', style: 'cancel'},
-                {
-                    text: 'Confirm',
-                    onPress: () => {
-                        Alert.alert('FORM SENT', 'Emergency alert sent successfully')
-                    },
-                },
-            ],
-            {cancelable:false}
-            );
+            ToastAndroid.show('Loading', ToastAndroid.SHORT)
         }
     };
 

@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TextInput, ToastAndroid, TouchableOpacity, View } from "react-native";
 
 const Register = () => {
     const nav = useNavigation();
@@ -21,6 +21,18 @@ const Register = () => {
 
     const backScreen = () => {
         nav.navigate('Welcome')
+    }
+
+    const handleSubmit = () => {
+        if(!name || !email || !confEmail || !user || !pass || !confPass){
+            ToastAndroid.show('Complete all fields!', ToastAndroid.SHORT);
+        } else if (email != confEmail){
+            ToastAndroid.show('Email does not match!', ToastAndroid.SHORT);
+        }else if (pass != confPass){
+            ToastAndroid.show('Password does not match!', ToastAndroid.SHORT);
+        } else{
+            ToastAndroid.show('Loading', ToastAndroid.SHORT);
+        }
     }
 
     const handleFocus = (field) => {
@@ -75,7 +87,7 @@ const Register = () => {
     return(
         <View style = {styles.container}>
             <View style = {styles.recOne}>
-                <Text style = {styles.headOne}>EMERGENCY ALERT</Text>
+                <Text style = {styles.headOne}>REGISTER</Text>
             </View>
 
             <TextInput  style={styles.textField}
@@ -133,7 +145,7 @@ const Register = () => {
                             placeholder = {(isConfPassFocused || confPass) ? '': 'Confirm password'}
                             placeholderColor = "#888"/>
             
-            <TouchableOpacity style = {styles.sendButton}>
+            <TouchableOpacity style = {styles.sendButton} onPress={handleSubmit}>
                 <Text style={styles.sendButtonText}>Next</Text>
             </TouchableOpacity>
 
