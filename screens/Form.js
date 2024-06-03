@@ -22,7 +22,7 @@ const Form = () => {
         nav.navigate('Welcome');
     }
 
-    const handleExternalResponder = () => {
+    const handleSubmit = () => {
         if(!name || !address || !number || !nature){
             Alert.alert('INCOMPLETE FORM', 'Please fill up the missing fields')
         }
@@ -129,7 +129,7 @@ const Form = () => {
                             placeholder = {(isNatureFocused || nature) ? '': 'Nature'}
                             placeholderColor = "#888"/>
             
-            <TouchableOpacity style = {styles.sendButton}>
+            <TouchableOpacity style = {styles.sendButton} onPress={handleSubmit}>
                 <Text style={styles.sendButtonText}>Next</Text>
             </TouchableOpacity>
 

@@ -12,6 +12,10 @@ const Login = () => {
     const [user, setUser] = useState('');
     const [pass, setPass] = useState('');
 
+    const handleRegister = () => {
+        nav.navigate('Register');
+    }
+
     const backScreen = () => {
         nav.navigate('Welcome');
     }
@@ -76,7 +80,7 @@ const Login = () => {
                 <Text style={styles.sendButtonText}>Log In</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.bodyText}>
+            <TouchableOpacity style={styles.bodyText} onPress={handleRegister}>
                 <Text style={styles.bodyText}>Not registered yet? SIGN UP</Text>
             </TouchableOpacity>
 

@@ -36,7 +36,7 @@ const Welcome = () => {
 const styles = StyleSheet.create({
     container: {width: '100%', height: '100%', backgroundColor: 'white', zIndex: -1, flex: 1},
     recOne: {width:'100%', height:'30%', left: 0, top:-125, backgroundColor: '#00609E', zIndex: -2},
-    headOne: {width: '100%', height: 45, textAlign: 'center', top:100, fontFamily:'Montserrat', fontSize:40, color:'white', zIndex: 1},
+    headOne: {width: '100%', height: 45, textAlign: 'center', top:100, fontFamily:'Roboto   ', fontSize:40, color:'white', zIndex: 1},
     headTwo: {width: '100%', height: 80, textAlign: 'center', top:100, fontFamily:'Roboto', fontSize:60, color:'white', zIndex: 1},
     buttonOne:{width: '60%', height: 70, left:'20%', top:'-25%', backgroundColor:'white', borderRadius:10, borderWidth:1, alignItems:'center', zIndex: 1},
     buttonTwo:{width:'60%', height: 70, left:'20%', top: '0%', backgroundColor: 'white', borderRadius:10, borderWidth:1, alignItems:'center',zIndex: 1},
